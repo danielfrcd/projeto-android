@@ -1,0 +1,358 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Work+Sans:ital,wght@0,200;0,300;0,400;0,900;1,500;1,600;1,700&display=swap');
+
+@font-face {
+    font-family: 'Android';
+    src: url('../fontes/idroid.otf') format('opentype');
+    font-weight: normal;
+}
+
+:root {
+    --cor0: #c5ebd6;
+    --cor1: #83e1ad;
+    --cor2: #3ddc84;
+    --cor3: #2fa866;
+    --cor4: #1a5c37;
+    --cor5: #063d1e;
+
+    --fonte-padrao: Arial, Verdana, helvetica, sans-serif;
+    --fonte-destaque: 'Work Sans' , sans-serif;
+    --fonte-android: 'Android', sans-serif;
+} 
+
+/* O root é uma maneira de facilitar na hora de digitar códigos.
+    Com ele eu crio variaveis no css, ele é bastante util por exemplo nesse caso, q preciso saber os códigos de cor, posso definir nomes para esse códigos (variaveis) e depois definidos no root, eu posso usa-los no menu rapido (ctrl + espaço), dessa maneira selecionando a cor de maneira mais rapida sem precisar de digitar o código dela.*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+
+    /* Aqui o (*) serve como uma configuração padrao para o site.
+       Nesse caso estou definindo q ele n tera margin nem padding,
+       aproximando os titulos e paragrafos deixando-os proximos
+       um do outro.
+    */
+}
+
+body {
+    background-color: var(--cor0);
+    font-family: var(--fonte-padrao);
+}
+
+/* BODY : Envolve todo o corpo do site, aki eu defino as 'configurações padrões' do site, caso eu n mecha em outros corpos, vai permanecer da maneira definida aki, como cor de fundo, formato e cor das letras.*/
+
+a.externo::after {
+    content: '\00A0\1F517';
+}
+
+/*
+A.EXTERNO::AFTER : o ::after pode ser usado para inserir conteúdo após do conteúdo dos elementos selecionados. (no caso estou inserindo o emoji da corrente depois dos links)
+
+CONTENT: define o conteúdo de um elemento.
+
+00A0: Serve para cria um espaço entre uma letra e outra sem quebrar a linha (nesse caso estamos criando um espaço entre o link e o emoji)
+*/
+
+
+header {
+    background-image:linear-gradient(to bottom, var(--cor3), var(--cor5));
+    min-height: 150px;
+    text-align: center;
+    padding-top: 40px;
+}
+
+/* HEADER - Cabeçalho do Site - consigo modificar cor de fundo, formato e cor das letras. 
+    
+   background-image/linear gradient : modifica cor de fundo do cabeçalho, se usa o back image aki pq vamos ter q usar o linear gradient pois com ele q é possivel usar esse efeito.
+   
+   text align : Centraliza o texto, como esse é o header padrão, não é preciso colocar nos outros (h1, p) porém caso coloque no header padrão e os outros não centralizem, basta colocar neles o text align tbm.
+   
+   padding top : ele cria um espaço entre o topo do header e o titulo dele.
+
+    
+   */
+
+header > h1 {
+    color: white;
+    font-family: var(--fonte-destaque);
+    margin-bottom: 20px;
+    font-size: 3em;
+    font-weight: normal;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.267);
+}
+
+/* color: Modifica a cor da letra do titulo
+   
+font family: Modifica a fonte do titulo
+
+margin bottom: cria um espaço em baixo do titulo 
+
+font size : define o tamanho da letra do titulo
+
+text shadow : da sombra no titulo
+*/
+
+header > p {
+    font-family: var(--fonte-padrao);
+    color: white;
+    font-size: 1.2em;
+    max-width: 600px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+/*
+color: Modifica a cor da letra do paragrafo
+font family: modifica o tipo da letra
+font size: define o tamanho da letra do paragrafo
+max-width:  estabelece a largura máxima do paragrafo.
+padding r/l: Cria um espaço no lado esquerdo e direito do paragrafo
+
+margin auto: centraliza o paragrafo (vai precisar centralizar pq ao usar o max width torna o paragrafo um bloco.*/
+
+
+nav {
+    background-color: var(--cor5);
+    padding: 10px;
+    box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.192);
+}
+
+/* Nav - Modifica o menu 
+   background-color: modifica a cor de fundo do menu 
+   box shadow: coloca um leve sombreamento por baixo do menu
+*/
+
+nav > a {
+    color: var(--cor1);
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+/* color : define a cor da letra
+    padding: cria um espaço entre as opções do menu
+    text decoration: faz com que a letra perca o sublinhado
+    font weight: define como negrito a letra
+    border radius: deixa a borda do menu arredondada
+    TRANSITION DURATION: usado para quando eu passar o mouse por cima do bloco(opção) do menu ele ter um tempo para a interação funcionar.
+*/
+
+nav > a:hover {
+background-color: var(--cor3);
+color: var(--cor5);
+}
+
+/*  
+    HOVER: é usado para aplicar estilos em um link quando o mouse    passa por cima dele.
+
+    BACK COLOR : define a cor de fundo do menu ao passar o mouse por cima
+    COLOR: define a cor da letra do menu ao passa o mouse por cima.
+*/
+
+main {
+    background-color: white;
+    min-width: 300px;
+    max-width: 1000px;
+    margin: auto;
+    margin-bottom: 30px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.603);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* Corpo do site aonde vai ficar os titulos e os paragrafos.
+    Modificando aki eu mecho com a cor de fundo, cor das letras e formato delas.
+    
+    MAX/MIN WIDTH: Define um limite de tamanho do main, dependendo do tamanho do aparelho.
+    MARGIN AUTO: Centraliza a caixa 
+    MARGIN-BOTTOM: Cria um espaço em baixo da box
+    BACK COLOR: modifica a cor de fundo do corpo do site.
+    BORDER BOTTOM RADIUS: arredonda a borda da caixa, o left e o right é pra sinalizar qual lado sera arredondado, se n definir isso ele arredonda as 4 pontas.
+
+*/
+
+main h1 {
+    color: var(--cor5);
+    font-family: var(--fonte-android);
+    font-weight: normal;
+    font-size: 1.8em;
+}
+
+/* main h1 - corpo do texto do primeiro titulo 
+   Posso mudar separadamente a cor de fundo e formato/cor de letras 
+   
+   color: modifica a cor da letra do h1 (titulo 1) do main
+   font family: modifica a fonte do h1 (titulo 1) do main*/
+
+main h2 {
+    font-family: var(--fonte-android);
+    color: var(--cor4);
+    font-weight: normal;
+    font-size: 1.3em;
+    background-image: linear-gradient(to right, var(--cor1), transparent);
+    text-indent: 10px;
+} 
+/* 
+    main h2 - corpo do texto do primeiro titulo 
+Posso mudar separadamente a cor de fundo e formato/cor de letras 
+    font family: modifica a fonte do h2 (titulo 2) do main
+    font size : tamanho da letra do h2
+    back image - linear: cria um fundo pro h2 com um gradiente
+    text indent: cria um espaço no inicio do h2
+*/
+
+main p {
+    margin: 15px 0px;
+    text-align: justify;
+    text-indent: 30px;
+    font-size: 1.1em;
+    line-height: 2em;
+}
+
+/* 
+    margin: cria um espaço em cima e em baixo na primeira opção e um espaço nos lados na segunda.
+    text align: alinha o texto
+    text indent: cria um espaço no inicio do paragrafo
+    line height: cria um espaço entre as linhas de cima e de baixo.
+    font size: aumenta o tamanho da letra
+*/
+
+main strong{
+    color: var(--cor4);
+    font-weight: bold;
+}
+
+main a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--cor5);
+    background-color: var(--cor1);
+    padding: 2px 6px;
+}
+
+main a:hover {
+    text-decoration: underline;
+    color: var(--cor4);
+}
+
+main img {
+    width: 100%;
+}
+/*
+ O width em cem por cento é para q a imagem ocupe o espaço inteiro da tela, isso é, na hora q aumentarmos ou diminuirmos a tela a imagem vai acompanhar proporcionalmente
+*/
+
+main img.pequena {
+    max-width: 350px;
+    display: block;
+    margin: auto;
+}
+
+/* 
+Aqui definimos o tamanho da imagem pequena para que ela tenha um formato maximo nao deixando ela perder a qualidade, depois usamos o display block para tornar a imagem um bloco, possibilitando mover ela no site. E usamos o margin auto para centralizar a imagem na pagina.
+*/
+
+div.video {
+    background-color: var(--cor5);
+    margin: 0px -20px 30px -20px;
+    padding: 20px;
+    padding-bottom: 58%;
+    position: relative;
+}
+
+div.video > iframe {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+
+aside {
+    background-color: var(--cor1);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.281);
+}
+
+/*
+BACK COLOR: Define a cor de fundo do aside com as lista
+PADDING: cria um espaço no 
+BORDER RADIUS: cria um arredondamento nas bordas do back color
+BOX SHADOW: cria um sombreamento de leve em baixo e na direita da caixa
+*/
+
+aside > ul {
+    list-style-type: '\2714\00A0\00A0';
+    list-style-position: inside;
+    columns: 2;
+}
+
+/*
+LIST STYLE TYPE: Definimos aki um emoji para o ul com o 2714, e o 00A0 é para ter um espaço entre o emoji e os links da lista.
+LIST STYLE POSITION - inside: Coloca as bolinhas do ul para dentro do back color
+COLUMNS: divide a lista em 2 ou mais colunas
+*/
+
+aside > h3 {
+    background-color: var(--cor4);
+    color: white;
+    padding: 10px;
+    margin: -10px -10px 0px -10px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+/*
+BACK COLOR: Define a cor de fundo do titulo h3
+COLOR: define a cor da letra do h3
+PADDING: aumenta o tamanho da parte de cima do h3
+MARGIN: aki estamos colocando ela negativa para q em vez de o margin se contraia, ele vai expandir para fora completando a borda do h3
+BORDER RADIUS: precisamos definer o border novamente pois quando usarmos o margin negativo ele vai tirar a borda, entao definimos denovo em todos os cantos para deixarmos da maneira correta.
+*/
+
+footer {
+    background-color: var(--cor5);
+    color: white;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 5px;
+}
+
+
+
+/* FOOTER (RODAPÉ)
+
+BACK COLOR: definimos cor de fundo do rodape
+COLOR: definimos a cor da letra do rodape
+TEXT ALIGN: centralizamos o texto do rodape
+FONT SIZE: definimos o tamanho da letra do rodape
+PADDING: criamos um espaço em cima do rodape
+*/
+
+footer a {
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+/*
+COLOR: definimos a cor da letra do link do rodape
+FONT WEIGHT: definimos o tipo da letra do link do rodape
+TEXT DECORATION-NONE : retiramos o sublinhado do link
+*/
+
+footer a:hover {
+    text-decoration: underline;
+    color: var(--cor1);
+}
+
+/*
+TEXT DECORATION-UNDERLINE : colocamos um sublinhado no link ao passar o mouse em cima
+COLOR: definimos a cor da letra do link ao passar o mouse em cima
+*/
